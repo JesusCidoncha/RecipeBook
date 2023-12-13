@@ -1,11 +1,16 @@
 import "../styles/NavBar-module-style.css";
 import logo from "../assets/logo.webp";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
     <nav className="navBar">
-      <h1>Yourecipes</h1>
-      <img src={logo} alt="logo" />
+      <Link to="/">
+        <a>YouRecipes</a>
+      </Link>
+      <Link to="/">
+        <img src={logo} alt="logo" />
+      </Link>
     </nav>
   );
 }

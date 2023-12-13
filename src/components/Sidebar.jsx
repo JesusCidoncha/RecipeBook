@@ -1,16 +1,12 @@
 import "../styles/Sidebar-module-style.css";
+import { Link } from "react-router-dom";
 
 function Sidebar() {
   return (
     <div className="sidebar">
-      <ul>
-        <li>
-          <a href="#">Home page</a>
-        </li>
-        <li>
-          <a href="#">About</a>
-        </li>
-      </ul>
+      <Link to="/about">
+        <button className="aboutUsBtn">About us</button>
+      </Link>
     </div>
   );
 }
