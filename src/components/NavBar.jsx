@@ -11,6 +11,9 @@ function NavBar() {
       <Link to="/">
         <img src={logo} alt="logo" />
       </Link>
+      <Link to="/form">
+        <a>Add new recipe</a>
+      </Link>
     </nav>
   );
 }
