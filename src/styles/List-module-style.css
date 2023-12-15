@@ -1,5 +1,5 @@
 .imageCtn img {
-  height: 200px;
+  height: 170px;
 }
 #root {
   width: 100%;
@@ -7,7 +7,6 @@
   padding: 1.5rem;
   text-align: center;
 }
-
 .logo {
   height: 5em;
   padding: 0.1rem 1.5em;
@@ -20,7 +19,6 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
-
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -29,23 +27,20 @@
     transform: rotate(360deg);
   }
 }
-
 @media (prefers-reduced-motion: no-preference) {
   .logo {
     animation: logo-spin infinite 20s linear;
   }
 }
-
 .text-iron {
   color: #0a035a;
 }
-
 .imageCtn img {
-  width: 350px;
-  margin: 3rem;
+  width: 400px;
+  margin: 2rem;
 }
 .container {
-  border: 1px solid black;
+  border: 2px solid black;
   display: flex;
   width: 45vw;
   flex-direction: row;
@@ -53,12 +48,18 @@
 }
 .textCtn {
   display: black;
-  font-size: 1.2rem;
-  text-align: left;
+  font-size: 1.5rem;
+  text-align: center;
 }
 .listCtn {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template: auto / 1fr 1fr;
+  gap: 15 px;
+  padding: 10px;
+  align-items: center;
+  border: 1px solid gray;
+  margin: 1rem;
+  background-color: beige;
   flex-wrap: wrap;
   align-content: center;
 }
