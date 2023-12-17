@@ -1,5 +1,6 @@
 import { useState } from "react";
 import recipesData from "../assets/recipes.json";
+import "../styles/Form-module-style.css";
 import List from "../components/List";
 
 function Form() {
@@ -33,7 +34,7 @@ function Form() {
     <div className="App pt-20">
       {/* FORM */}
       <form onSubmit={handleSubmit}>
-        <span>Add a Recipe</span>
+        <h3>Add a Recipe</h3>
         <div>
           <label>
             Recipe Name
@@ -90,9 +91,6 @@ function Form() {
               }}
             />
           </label>
-        </div>
-
-        <div>
           <label>
             Recipe Instructions
             <input
@@ -107,7 +105,7 @@ function Form() {
             />
           </label>
 
-          <button type="submit">Add Recipe</button>
+          <button id= "btn" type="submit">Add Recipe</button>
         </div>
       </form>
     </div>
