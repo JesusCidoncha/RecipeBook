@@ -1,7 +1,7 @@
 .footer {
-  background-color: rgb(43, 19, 137);
+  background-color: rgba(19, 49, 137, 0.54);
   color: white;
-  height: 20vh;
+  height: 10vh;
   text-align: center;
   font-size: 2rem;
 }

@@ -19,7 +19,7 @@ function List() {
   return (
     <div>
       <div>
-        <input
+        <input id="search"
           type="text"
           value={searchItem}
           onChange={handleInputChange}
@@ -35,17 +35,17 @@ function List() {
             <div className="textCtn">
               <h3>{recipe.name}</h3>
               <p>Calories: {recipe.calories}</p>
-              <p>{recipe.servings}</p>
-              <button
+              <p>Servings: {recipe.servings}</p>
+              <button id="button"
                 class="button"
                 type="button"
                 onClick={() => handleDelete(recipe.id)}
               >
-                Delete
+                Delete 
               </button>
-              <dev />
-              {/* <Link to="/edit">*/}
-              <button class="button" type="button">
+             
+
+              <button id="button2"  type="button">
                 Edit
               </button>
               {/* </Link>*/}
