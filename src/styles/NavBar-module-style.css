@@ -1,18 +1,18 @@
 .navBar {
   width: 100vw;
-  height: 20vh;
+  height: 17vh;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: rgb(55, 174, 174);
+  background-color: rgba(18, 158, 90, 0.413);
   font-size: 2rem;
   color: white;
   padding-left: 30px;
 }
 .navBar img {
   height: 15vh;
-  padding-right: 100px;
+ 
 }
 .navBar img:hover {
   box-shadow: none;
