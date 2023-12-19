@@ -20,6 +20,7 @@ function List({ recipes, setRecipes }) {
     <div>
       <div>
         <input
+          id="search"
           type="text"
           value={searchItem}
           onChange={handleInputChange}
