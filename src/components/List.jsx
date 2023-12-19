@@ -1,6 +1,11 @@
 import recipesData from "../assets/recipes.json";
 import React, { useState } from "react";
 import "../styles/List-module-style.css";
+import { Link } from "react-router-dom";
+import RecipesCard from "../pages/RecipesCard";
+
+
+
 function List() {
   const [searchItem, setSearchItem] = useState("");
   const [filteredUsers, setFilteredUsers] = useState(recipesData);
@@ -18,7 +23,7 @@ function List() {
   };
   return (
     <div>
-      <div>
+      <div >
         <input id="search"
           type="text"
           value={searchItem}
@@ -26,21 +31,20 @@ function List() {
           placeholder="Type to search"
         />
       </div>
-      <div className="listCtn">
+      <div  className="listCtn"> 
         {filteredUsers.map((recipe) => (
-          <div key={recipe.id} className="container">
-            <div className="imageCtn">
+          
+          <div key={recipe.id}  className="container">
+           <Link to={`/recipes/${recipe.id}`} > <div  className="imageCtn">
               <img src={recipe.image} alt="image" />
-            </div>
-            <div className="textCtn">
+            </div><RecipesCard {...recipe}/>
+          </Link>
+            <div   className="textCtn">
               <h3>{recipe.name}</h3>
               <p>Calories: {recipe.calories}</p>
               <p>Servings: {recipe.servings}</p>
-              <button id="button"
-                class="button"
-                type="button"
-                onClick={() => handleDelete(recipe.id)}
-              >
+              <button  id="button"
+               type="button" onClick={() => handleDelete(recipe.id) }  >
                 Delete 
               </button>
              
@@ -51,7 +55,9 @@ function List() {
               {/* </Link>*/}
             </div>
           </div>
+          
         ))}
+       
       </div>
     </div>
   );

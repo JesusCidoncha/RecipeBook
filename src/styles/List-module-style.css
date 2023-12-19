@@ -83,6 +83,7 @@
   width: 400px;
   margin: 2rem;
 }
+@media screen and (min-width:1400px) {
 .container {
   border: 2px solid black;
   display: flex;
@@ -95,7 +96,10 @@
   font-size: 1.5rem;
   text-align: center;
 }
+
+  
 .listCtn {
+  
   
   display: grid;
   grid-template: auto / 1fr 1fr;
@@ -107,4 +111,5 @@
   background-color:honeydew;
   flex-wrap: wrap;
   align-content: center;
+}
 }
