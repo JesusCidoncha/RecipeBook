@@ -45,6 +45,7 @@ function EditRecipePage({ setRecipes }) {
     return <div>Recipe not found.</div>;
   }
 
+  // Rest of the form similar to your Add Recipe form, but with existing values
   return (
     <div className="App pt-20">
       {/* FORM */}
