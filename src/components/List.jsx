@@ -1,21 +1,21 @@
-import recipesData from "../assets/recipes.json";
 import React, { useState } from "react";
-import "../styles/List-module-style.css";
-function List() {
+import { Link } from "react-router-dom";
+
+function List({ recipes, setRecipes }) {
   const [searchItem, setSearchItem] = useState("");
-  const [filteredUsers, setFilteredUsers] = useState(recipesData);
+
   const handleInputChange = (e) => {
-    const searchTerm = e.target.value;
-    console.log(e.target.value);
-    setSearchItem(searchTerm);
-    const filteredItems = recipesData.filter((recipe) =>
-      recipe.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredUsers(filteredItems);
+    setSearchItem(e.target.value.toLowerCase());
   };
+
   const handleDelete = (currentId) => {
-    setFilteredUsers(filteredUsers.filter((recipe) => recipe.id !== currentId));
+    setRecipes(recipes.filter((recipe) => recipe.id !== currentId));
   };
+
+  const filteredRecipes = recipes.filter((recipe) =>
+    recipe.name.toLowerCase().includes(searchItem)
+  );
+
   return (
     <div>
       <div>
@@ -27,28 +27,32 @@ function List() {
         />
       </div>
       <div className="listCtn">
-        {filteredUsers.map((recipe) => (
+        {filteredRecipes.map((recipe) => (
           <div key={recipe.id} className="container">
             <div className="imageCtn">
-              <img src={recipe.image} alt="image" />
+              <img src={recipe.image} alt={recipe.name} />
             </div>
             <div className="textCtn">
               <h3>{recipe.name}</h3>
               <p>Calories: {recipe.calories}</p>
-              <p>{recipe.servings}</p>
+              <p>Servings: {recipe.servings}</p>
               <button
-                class="button"
+                className="button"
                 type="button"
                 onClick={() => handleDelete(recipe.id)}
               >
                 Delete
               </button>
-              <dev />
-              {/* <Link to="/edit">*/}
-              <button class="button" type="button">
-                Edit
-              </button>
-              {/* </Link>*/}
+              <Link to={`/edit/${recipe.id}`}>
+                <button className="button" type="button">
+                  Edit
+                </button>
+              </Link>
+              <Link to={`/recipes/${recipe.id}`}>
+                <button className="button" type="button">
+                  Details
+                </button>
+              </Link>
             </div>
           </div>
         ))}
@@ -56,4 +60,5 @@ function List() {
     </div>
   );
 }
+
 export default List;

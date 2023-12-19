@@ -1,39 +1,49 @@
-import React, { useState } from "react";
-import uuid4 from "uuid4";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import recipesData from "../assets/recipes.json";
 
-import { useNavigate } from "react-router-dom"; // Import useHistory
-function Form({ setRecipes }) {
-  const navigate = useNavigate(); // Initialize useHistory
+function EditRecipePage({ setRecipes }) {
+  const { recipeId } = useParams();
+  const navigate = useNavigate();
+  const existingRecipe = recipesData.find((r) => r.id === recipeId);
+
   const [name, setName] = useState("");
   const [calories, setCalories] = useState("");
   const [image, setImage] = useState("");
   const [servings, setServings] = useState("");
   const [instructions, setInstructions] = useState("");
 
+  useEffect(() => {
+    if (existingRecipe) {
+      setName(existingRecipe.name);
+      setCalories(existingRecipe.calories);
+      setImage(existingRecipe.image);
+      setServings(existingRecipe.servings);
+      setInstructions(existingRecipe.instructions);
+    }
+  }, [existingRecipe]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Form submitted");
-    const newRecipe = {
-      id: uuid4(),
+    const updatedRecipe = {
+      id: recipeId,
       name,
       calories,
       image,
       servings,
       instructions,
     };
-    console.log("click");
-    // Correctly using the previous state for updating
-    setRecipes((prevRecipes) => [...prevRecipes, newRecipe]);
-
-    console.log(newRecipe);
-    // Reset form fields
-    setName("");
-    setCalories("");
-    setImage("");
-    setServings("");
-    setInstructions("");
+    setRecipes((prevRecipes) =>
+      prevRecipes.map((recipe) =>
+        recipe.id === recipeId ? updatedRecipe : recipe
+      )
+    );
     navigate("/");
   };
+
+  if (!existingRecipe) {
+    return <div>Recipe not found.</div>;
+  }
 
   return (
     <div className="App pt-20">
@@ -119,4 +129,4 @@ function Form({ setRecipes }) {
   );
 }
 
-export default Form;
+export default EditRecipePage;

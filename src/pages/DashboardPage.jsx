@@ -1,18 +1,15 @@
-import { useState } from "react";
-
+import React, { useState } from "react";
 import recipesData from "../assets/recipes.json";
 import List from "../components/List";
+import Form from "../components/Form"; // Import Form component
 
-function DashboardPage() {
-  // eslint-disable-next-line no-unused-vars
-  const [recipes, setRecipes] = useState(recipesData);
-
+function DashboardPage({ recipes, setRecipes }) {
+  console.log("DashboardPage - recipes:", recipes);
   return (
     <div className="border-2 border-rose-500 m-2">
       <h1>Your recipes are</h1>
-      <div>
-        <List />
-      </div>
+      <List recipes={recipes} setRecipes={setRecipes} />
+      <Form setRecipes={setRecipes} />
     </div>
   );
 }
