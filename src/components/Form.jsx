@@ -40,10 +40,10 @@ function Form({ setRecipes }) {
       {/* FORM */}
       <form onSubmit={handleSubmit}>
         <h3>Add a Recipe</h3>
-        <div id="div">
+        <div>
           <label>
             Recipe Name
-            <input id="inp"
+            <input
               name="name"
               type="text"
               placeholder="Name"
@@ -57,7 +57,7 @@ function Form({ setRecipes }) {
 
           <label>
             Image of the dish
-            <input id="inp"
+            <input
               name="image"
               type="url"
               placeholder="Dish Image"
@@ -71,7 +71,7 @@ function Form({ setRecipes }) {
 
           <label>
             Calories
-            <input id="inp"
+            <input
               name="phone"
               type="number"
               placeholder="Calories"
@@ -85,7 +85,7 @@ function Form({ setRecipes }) {
 
           <label>
             Servings
-            <input id="inp"
+            <input
               name="servings"
               type="number"
               placeholder="Servings"
@@ -98,7 +98,7 @@ function Form({ setRecipes }) {
           </label>
           <label>
             Recipe Instructions
-            <input id="inp"
+            <input
               name="intructions"
               type="text"
               placeholder="Instructions"

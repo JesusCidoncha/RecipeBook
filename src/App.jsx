@@ -9,7 +9,8 @@ import About from "./pages/AboutPage";
 import NotFound from "./pages/NotFoundPage";
 import Form from "./components/Form";
 import recipesData from "./assets/recipes.json";
-import EditRecipePage from "./components/EditRecipeForm";
+import EditRecipePage from "./components/EditRecipePage";
+import RecipeDetailsPage from "./pages/RecipeDetailsPage";
 function App() {
   const [recipes, setRecipes] = useState(recipesData);
   return (
@@ -27,10 +28,7 @@ function App() {
           path="/edit/:recipeId"
           element={<EditRecipePage setRecipes={setRecipes} />}
         />
-        <Route
-          path="/edit/:recipeId"
-          element={<EditRecipePage setRecipes={setRecipes} />}
-        />
+        <Route path="/recipes/:recipeId" element={<RecipeDetailsPage />} />
         <Route path="/about" element={<About />}></Route>
         <Route path="/form" element={<Form />}></Route>
       </Routes>
