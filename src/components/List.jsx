@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "../styles/List-module-style.css";
 
 function List({ recipes, setRecipes }) {
   const [searchItem, setSearchItem] = useState("");
@@ -22,6 +23,7 @@ function List({ recipes, setRecipes }) {
         <input
           type="text"
           value={searchItem}
+          className="searchRecipe"
           onChange={handleInputChange}
           placeholder="Type to search"
         />
@@ -37,19 +39,19 @@ function List({ recipes, setRecipes }) {
               <p>Calories: {recipe.calories}</p>
               <p>Servings: {recipe.servings}</p>
               <button
-                className="button"
+                className="recipeButtons"
                 type="button"
                 onClick={() => handleDelete(recipe.id)}
               >
                 Delete
               </button>
               <Link to={`/edit/${recipe.id}`}>
-                <button className="button" type="button">
+                <button className="recipeButtons" type="button">
                   Edit
                 </button>
               </Link>
               <Link to={`/recipes/${recipe.id}`}>
-                <button className="button" type="button">
+                <button className="recipeButtons" type="button">
                   Details
                 </button>
               </Link>

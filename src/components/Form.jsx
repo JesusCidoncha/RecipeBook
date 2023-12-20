@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import uuid4 from "uuid4";
+import "../styles/Form-module-style.css";
 
 import { useNavigate } from "react-router-dom"; // Import useHistory
 function Form({ setRecipes }) {
@@ -21,12 +22,9 @@ function Form({ setRecipes }) {
       servings,
       instructions,
     };
-    console.log("click");
-    // Correctly using the previous state for updating
+
     setRecipes((prevRecipes) => [...prevRecipes, newRecipe]);
 
-    console.log(newRecipe);
-    // Reset form fields
     setName("");
     setCalories("");
     setImage("");
@@ -36,8 +34,7 @@ function Form({ setRecipes }) {
   };
 
   return (
-    <div className="App pt-20">
-      {/* FORM */}
+    <div className="App pt-20" id="formCtn">
       <form onSubmit={handleSubmit}>
         <h3>Add a Recipe</h3>
         <div>
@@ -48,6 +45,7 @@ function Form({ setRecipes }) {
               type="text"
               placeholder="Name"
               value={name}
+              required
               onChange={(event) => {
                 console.log(event.target.value);
                 setName(event.target.value);
@@ -76,6 +74,7 @@ function Form({ setRecipes }) {
               type="number"
               placeholder="Calories"
               value={calories}
+              required
               onChange={(event) => {
                 console.log(event.target.value);
                 setCalories(event.target.value);
@@ -90,17 +89,19 @@ function Form({ setRecipes }) {
               type="number"
               placeholder="Servings"
               value={servings}
+              required
               onChange={(event) => {
                 console.log(event.target.value);
                 setServings(event.target.value);
               }}
             />
           </label>
-          <label>
+          <label className="instructions">
             Recipe Instructions
             <input
               name="intructions"
               type="text"
+              required
               placeholder="Instructions"
               value={instructions}
               onChange={(event) => {

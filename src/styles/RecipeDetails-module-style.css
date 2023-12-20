@@ -1,0 +1,35 @@
+.recipeDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.recipeDetailsContainer h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.recipeDetailsContainer img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.recipeDetailsContainer p {
+  font-size: 18px;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+/* Specific styling for key details like calories and servings */
+.detailHighlight {
+  font-weight: bold;
+  color: #4caf50; /* Adjust the color as per your theme */
+}

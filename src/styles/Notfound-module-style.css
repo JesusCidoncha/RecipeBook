@@ -43,3 +43,8 @@
 .notFoundCtn {
   height: 90vh;
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
